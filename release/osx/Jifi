@@ -1,0 +1,5 @@
+#!/bin/bash
+ 
+cd `dirname $0`
+
+java -XstartOnFirstThread -cp ./lib/swt/swt.jar:. -Djava.library.path=./lib/swt:./lib/rxtx jifi.Jifi
