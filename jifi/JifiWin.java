@@ -138,6 +138,7 @@ public class JifiWin extends JifiWinUI
 	{
 		this.chunkSizeSelector.setMinimum(16);
 		this.chunkSizeSelector.setMaximum(248);
+		this.chunkSizeSelector.setSelection(248);
 		
 		this.chunkSizeSelector.addModifyListener(new ModifyListener()
 		{
@@ -183,6 +184,9 @@ public class JifiWin extends JifiWinUI
 						/* write the hex file to the device */
 						HexFile hex = HexReader.parse(Jifi.lastFile);
 						
+						System.out.printf("Last addr: %X\n", hex.getLastUsedAddress());
+						System.out.printf("Data size: %X\n", hex.getDataSize());
+						
 						comm.eraseMem(0x000800, hex.getDataSize());
 						
 						byte[][] data = hex.getChunkedData(Jifi.chunkSize);
@@ -192,7 +196,7 @@ public class JifiWin extends JifiWinUI
 						{
 							public void run()
 							{
-								/* Set the progress bar params */
+								// Set the progress bar params
 								JifiWin.this.uploadProgress.setMaximum(dataSize);
 								JifiWin.this.uploadProgress.setVisible(true);
 							}

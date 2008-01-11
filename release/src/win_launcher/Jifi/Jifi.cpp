@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	string dirChange(argv[0]);
 	dirChange = dirChange.substr(0,dirChange.find_last_of("/"));
 	
-	string command = "START javaw -cp lib/swt/swt.jar;. -Djava.library.path=./lib/rxtx;./lib/swt jifi.Jifi";
+	string command = "START javaw -cp lib/swt.jar;lib/RXTXcomm.jar. -Djava.library.path=./lib/swt jifi.Jifi";
 
 	command += " " + param1 + " " + param2;
 

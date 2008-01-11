@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 	string dirChange(argv[0]);
 	dirChange = dirChange.substr(0,dirChange.find_last_of("/"));
 	
-	string command = "cd " + dirChange + "; java -cp lib/swt/swt.jar:. -Djava.library.path=./lib/rxtx:./lib/swt jifi.Jifi";
+	string command = "cd " + dirChange + "; java -cp lib/swt.jar:lib/RXTXcomm.jar. -Djava.library.path=./lib/swt jifi.Jifi";
 
 	command += " " + param1 + " " + param2;
 

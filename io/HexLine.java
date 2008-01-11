@@ -10,9 +10,11 @@ public class HexLine
 	
 	private byte[] addr;
 	
-	private byte[] data;
+	private byte[] data = new byte[0];
 	
 	private byte checksum;
+	
+	private static byte temp = 0x00;
 	
 	public HexLine(String line, byte addrOffset, int lineNum) throws IOException
 	{
@@ -43,15 +45,24 @@ public class HexLine
 		s.read(buff);
 		byte addr2 = parseByte(buff);
 		
-		addr = new byte[]{addrOffset, addr1, addr2};
-		
 		/* Read the data type byte */
 		s.read(buff);
-		
 		type = parseByte(buff);
+		
+		if (type == 0x04)
+		{
+			//only care about 2nd byte
+			s.read(buff);
+			s.read(buff);
+			temp = parseByte(buff);
+			return;
+		}
 		
 		/* Read the data bytes */
 		data = new byte[byteCount];
+		
+		//addr = new byte[]{addrOffset, addr1, addr2};
+		addr = new byte[]{temp, addr1, addr2};
 		
 		for (int i=0; i<byteCount; ++i)
 		{

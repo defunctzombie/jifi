@@ -61,8 +61,23 @@ public class IfiComm
 				tx = port.getOutputStream();
 				rx = port.getInputStream();
 				
+				//System.out.printf("avail1 %d\n", rx.available());
+				
+				//write P to put controller into program mode
+				//and grab the response...this will allow us to continue if it is 
+				//already in program mode
+				tx.write('P');
+				tx.flush();
+				
+				try
+				{
+					Thread.sleep(100);
+				}
+				catch (InterruptedException ie) {}
+				
+				System.out.printf("avail %d\n", rx.available());
+				rx.skip(rx.available());
 				byte[] firmware = this.getFirmwareVersion();
-					
 				if (firmware[0] != 0x01 && firmware[1] != 0x01)
 				{
 					throw new IOException("Firmware version is not v1.1");
@@ -161,8 +176,19 @@ public class IfiComm
 			/*TODO check for valid return */
 			for (int i=0 ; i<6 ; ++i)
 			{
-				rx.read();
+				int b = rx.read();
+				System.out.printf("%02X ", b);
 			}
+			System.out.print("\n");
+			/*
+			while (true)
+			{
+				if (rx.available() > 0)
+				{
+					System.out.printf("%c", rx.read());
+				}
+			}
+			*/
 		}
 		catch (IOException ioe)
 		{
@@ -187,6 +213,9 @@ public class IfiComm
 		try
 		{
 			this.send(new byte[] {0x00, 0x02});
+			
+			System.out.printf("firm avail: %d\n", rx.available());
+			
 			byte[] vres = this.receive();
 			
 			if (vres.length != 4 && vres[0] != 0x00 && vres[1] != 0x02)

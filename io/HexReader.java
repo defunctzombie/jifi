@@ -25,7 +25,15 @@ public abstract class HexReader
 			}
 			else
 			{
-				lines.add(new HexLine(line, (byte)0x00, lineNum));
+				HexLine hl = new HexLine(line, (byte)0x00, lineNum);
+				if (hl.getType() == 0x04 && lineNum != 1)
+				{
+					break;
+				}
+				else if (hl.getType() != 0x04)
+				{
+					lines.add(hl);
+				}
 			}
 			
 			lineNum++;

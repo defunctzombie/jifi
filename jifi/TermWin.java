@@ -88,7 +88,6 @@ public class TermWin extends TermWinUI
 						int buff = rx.read();
 						if (buff < 0)
 						{
-							System.out.println("error reading");
 							break;
 						}
 						

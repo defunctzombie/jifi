@@ -75,6 +75,7 @@ public class HexFile
 		return chunks;
 	}
 	
+	/** Return the side of the data for the file in bytes */
 	public int getDataSize()
 	{
 		return this.getLastUsedAddress() - this.getFirstUsedAddress() + 1; //first and last are inclusive
