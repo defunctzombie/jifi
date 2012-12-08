@@ -16,10 +16,10 @@ Jifi can be used as a GUI or CLI app.
 $ jifi <device> <hex file>
 ```
 
-## install
+## prebuilt binaries
 
-* Windows: [jifi_0.1.3_win32.zip](http://shtylman.com/misc/legacy/frc/jifi/jifi_0.1.3_win32.zip)
-* Linux: [jifi_0.1.3_linux32.tar.gz](http://shtylman.com/misc/legacy/frc/jifi/jifi_0.1.3_linux32.tar.gz)
+* Windows: [jifi_0.1.3_win32.zip](https://github.com/downloads/shtylman/jifi/jifi_0.1.3_win32.zip)
+* Linux: [jifi_0.1.3_linux32.tar.gz](https://github.com/downloads/shtylman/jifi/jifi_0.1.3_linux32.tar.gz)
 
 ## protocol
 
