@@ -6,7 +6,7 @@ This project is not maintained and exists here for reference only
 
 Jifi is a java based program loader for legacy [FRC controllers](http://www.ifirobotics.com/rc.shtml) designed by [IFI robotics](http://www.ifirobotics.com/). It should also work on old vex robotics controllers from the same era.
 
-![Java IFI Loader](http://shtylman.github.com/jifi/screenshot.png)
+![Java IFI Loader](http://defunctzombie.github.com/jifi/screenshot.png)
 
 ## use
 
@@ -18,14 +18,14 @@ $ jifi <device> <hex file>
 
 ## prebuilt binaries
 
-* Windows: [jifi_0.1.3_win32.zip](https://github.com/downloads/shtylman/jifi/jifi_0.1.3_win32.zip)
-* Linux: [jifi_0.1.3_linux32.tar.gz](https://github.com/downloads/shtylman/jifi/jifi_0.1.3_linux32.tar.gz)
+* Windows: [jifi_0.1.3_win32.zip](https://github.com/downloads/defunctzombie/jifi/jifi_0.1.3_win32.zip)
+* Linux: [jifi_0.1.3_linux32.tar.gz](https://github.com/downloads/defunctzombie/jifi/jifi_0.1.3_linux32.tar.gz)
 
 ## protocol
 
 The protocol is based on Microchip [Application Note 851](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1824&appnote=en012031) with some additional elements not present in the application node.
 
-See the [wiki](https://github.com/shtylman/jifi/wiki) for protocol details.
+See the [wiki](https://github.com/defunctzombie/jifi/wiki) for protocol details.
 
 ## history
 
